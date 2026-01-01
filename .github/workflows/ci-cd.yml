@@ -1,0 +1,19 @@
+name: Automated Deployment Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Run build
+      run: echo "Build successful"
+
+    - name: Deploy
+      run: echo "Deploying..."
+
