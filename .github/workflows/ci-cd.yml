@@ -7,13 +7,24 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Build
+      run: echo "Building application..."
 
-    - name: Run build
-      run: echo "Build successful"
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Run tests
+      run: echo "Running tests..."
 
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
     - name: Deploy
-      run: echo "Deploying..."
+      run: echo "Deploying application..."
+
 
